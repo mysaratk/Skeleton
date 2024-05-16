@@ -11,7 +11,7 @@ namespace Testing1
         public void InstanceOK()
         {
             //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff ();
+            clsStaff AnStaff = new clsStaff();
             //test to see that it exists
             Assert.IsNotNull(AnStaff);
         }
@@ -73,5 +73,43 @@ namespace Testing1
             // Test to see that the two values are the same
             Assert.AreEqual(Anstaff.DateOfBirth, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //create a boolean variable to store the results of the validation
+            bool found = false;
+            //create some test data to use with the method
+            Int32 StaffID = 21;
+            //invoke the method
+            found = AnStaff.Find(StaffID);
+            //test to see if the result is true
+            Assert.IsTrue(found);
+        }
+        [TestMethod]
+        public void TestAdressIDFound()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //create a Boolean variable to store the result of the search
+            Boolean found = false;
+            //create a boolean variable to record if the data is ok
+            Boolean OK = true;
+            //create some test to use with the method
+            Int32 StaffId = 21;
+            //invoke the method
+            found = AnStaff.Find(StaffId);
+            //check the staff ID
+            if ((Int32)AnStaff.StaffID != 21)
+            {
+                OK = false;
+            }
+            //test to see the result is correct
+            Assert.IsTrue(OK);
+        }
     }
-}
+
+
+
+    }
