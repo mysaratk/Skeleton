@@ -35,7 +35,7 @@ namespace Testing1
             clsStaff Anstaff = new clsStaff();
 
             // Create some test data to assign to the property
-            int TestData = 1234; // Assuming staff IDs are integers
+            int TestData = 1; // Assuming staff IDs are integers
 
             // Assign the data to the property
             Anstaff.StaffID = TestData;
@@ -50,7 +50,7 @@ namespace Testing1
             clsStaff Anstaff = new clsStaff();
 
             // Create some test data to assign to the property
-            string TestData = "John Doe";
+            string TestData = "Piotr";
 
             // Assign the data to the property
             Anstaff.FullName = TestData;
@@ -81,7 +81,7 @@ namespace Testing1
             //create a boolean variable to store the results of the validation
             bool found = false;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             found = AnStaff.Find(StaffID);
             //test to see if the result is true
