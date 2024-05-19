@@ -18,12 +18,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         return IblStaffID;
     }
 
-    protected void BtnOK_Click(object sender, EventArgs e, Label iblStaffId)
+    protected void BtnOK_Click(object sender, EventArgs e, Label IblStaffId)
     {
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
         //capture the staff id
-        AnStaff.StaffID = iblStaffId.Text;
+        AnStaff.StaffID = int.Parse(IblStaffId.Text);
         //store the staff id
         Session["Anstaff"] = AnStaff;
         //navigate to the view page
