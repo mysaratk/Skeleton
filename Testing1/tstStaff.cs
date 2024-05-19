@@ -88,28 +88,25 @@ namespace Testing1
             Assert.IsTrue(found);
         }
         [TestMethod]
-        public void TestAdressIDFound()
+        public bool Find(int StaffId)
         {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //create a Boolean variable to store the result of the search
-            Boolean found = false;
-            //create a boolean variable to record if the data is ok
-            Boolean OK = true;
-            //create some test to use with the method
-            Int32 StaffId = 21;
-            //invoke the method
-            found = AnStaff.Find(StaffId);
-            //check the staff ID
-            if ((Int32)AnStaff.StaffID != 21)
+            clsdataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffID", StaffId);
+            DB.Execute("dbo.tblstaff_FilterBystaffId");
+            if (DB.Count == 1)
             {
-                OK = false;
+                StaffId = Convert.ToInt32(DB.DataTable.Rows[0][staff_Id]);
+                FullName = Convert.ToVARCHAR(DB.DataTable.Rows[0][full_name]);
+                Dateofbirth = Convert.ToDate(DB.DataTable.Rows[0][date_of_birth]);
+                IsActive = Convert.ToBoolean(DB.DataTable.Rows[0][is_active]);
+                return true;
             }
-            //test to see the result is correct
-            Assert.IsTrue(OK);
+            else
+            {
+                return false;
+            }
         }
     }
+}
 
 
-
-    }
