@@ -16,10 +16,9 @@
         <div>
         </div>
         <asp:Label ID="IblStaffID" runat="server" style="z-index: 1; left: 17px; top: 42px; position: absolute" Text="StaffID" width="76px"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 113px; top: 42px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 113px; top: 42px; position: absolute"></asp:TextBox>
         <p>
             <asp:Label ID="IblFullName" runat="server" style="z-index: 1; left: 14px; top: 84px; position: absolute; bottom: 734px" Text="FullName" width="76px"></asp:Label>
-            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click1" style="z-index: 1; left: 285px; top: 82px; position: absolute" Text="Find" />
         </p>
         <asp:TextBox ID="txtFullName" runat="server" style="z-index: 1; left: 112px; top: 82px; position: absolute"></asp:TextBox>
         <div style="margin-left: 1040px">
@@ -36,6 +35,7 @@
     <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
     </form>
     </body>
 </html>
