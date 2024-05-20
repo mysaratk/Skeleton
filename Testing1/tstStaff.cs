@@ -106,7 +106,16 @@ namespace Testing1
                 return false;
             }
         }
+        [TestClass]
+        public class tstAddress
+        {
+            string StaffID = "3";
+            string FullName = "Piotr";
+            string DateOfBirth = "11/04/200";
+            string Active = "True";
+        }
     }
+    
 }
 
 
