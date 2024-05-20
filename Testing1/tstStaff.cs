@@ -90,14 +90,14 @@ namespace Testing1
         [TestMethod]
         public bool Find(int StaffId)
         {
-            clsdataConnection DB = new clsDataConnection();
+            clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@StaffID", StaffId);
             DB.Execute("dbo.tblstaff_FilterBystaffId");
             if (DB.Count == 1)
             {
-                StaffId = Convert.ToInt32(DB.DataTable.Rows[0][staff_Id]);
-                FullName = Convert.ToVARCHAR(DB.DataTable.Rows[0][full_name]);
-                Dateofbirth = Convert.ToDate(DB.DataTable.Rows[0][date_of_birth]);
+                StaffId = Convert.ToInt32(DB.DataTable.Rows[0][StaffId]);
+                FullName = Convert.ToString(DB.DataTable.Rows[0][FullName]);
+                Dateofbirth = Convert.ToDateTime(DB.DataTable.Rows[0][DateTime]);
                 IsActive = Convert.ToBoolean(DB.DataTable.Rows[0][is_active]);
                 return true;
             }

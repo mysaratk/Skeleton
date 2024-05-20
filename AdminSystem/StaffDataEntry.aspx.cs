@@ -37,21 +37,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Response.Redirect("StaffViewer.aspx");
     }
 
-    protected void Button1_Click1(object sender, EventArgs e)
+
+
+
+    protected void btnFind_Click(object sender, EventArgs e)
     {
-        clsStaff AnStaff = new clsStaff();
-        Int32 StaffId;
-        Boolean Found = false;
-        StaffId = Convert.ToInt32(txtStaffId.text);
-        Found = AnStaff.Find(StaffId);
-        if (Found == true)
-        {
-            txtFullName.Text = AnStaff.StaffFullname();
-            TxtDOB.Text = AnStaff.Dateofbirth();
-            txtisActive = AnStaff.Active();
-            txtStaffId = AnStaff.StaffID();
+            clsStaff AnStaff = new clsStaff();
+            Int32 StaffId;
+            Boolean Found = false;
+            StaffId = Convert.ToInt32(txtStaffId.Text);
+            Found = AnStaff.Find(StaffId);
+            if (Found == true)
+            {
+                txtFullName.Text = AnStaff.FullName;
+                TxtDOB.Text = AnStaff.DateOfBirth.ToString();
+                ChkActive.Checked = AnStaff.Active;
+                
+            }
+
         }
-
-
     }
-}
