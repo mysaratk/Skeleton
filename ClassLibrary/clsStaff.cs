@@ -60,19 +60,16 @@ namespace ClassLibrary
                 mActive = value;
             }
         }
-
-       
-            
-      
-
-     
-
         public bool Find(int staffID)
         {
             //set the private data members to the test data value
             StaffID = 21;
             //always return true
             return true;
+        }
+        public string Valid(string StaffID, string FullName, string DateOfBirth, string Active)
+        {
+            return "";
         }
     }
 }

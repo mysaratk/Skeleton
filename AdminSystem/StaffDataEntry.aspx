@@ -16,7 +16,7 @@
         <div>
         </div>
         <asp:Label ID="IblStaffID" runat="server" style="z-index: 1; left: 17px; top: 42px; position: absolute" Text="StaffID" width="76px"></asp:Label>
-        <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 113px; top: 42px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 113px; top: 42px; position: absolute" OnTextChanged="txtStaffId_TextChanged"></asp:TextBox>
         <p>
             <asp:Label ID="IblFullName" runat="server" style="z-index: 1; left: 14px; top: 84px; position: absolute; bottom: 734px" Text="FullName" width="76px"></asp:Label>
         </p>
@@ -24,18 +24,18 @@
         <div style="margin-left: 1040px">
             <asp:Label ID="IblDOB" runat="server" style="z-index: 1; left: 11px; top: 114px; position: absolute" Text="Date of birth"></asp:Label>
         </div>
-        <p style="height: 26px; width: 631px">
-            &nbsp;</p>
-        <asp:TextBox ID="TxtDOB" runat="server" style="z-index: 1; left: 111px; top: 116px; position: absolute"></asp:TextBox>
-        <asp:CheckBox ID="ChkActive" runat="server" style="z-index: 1; left: 14px; top: 156px; position: absolute" Text="Active" width="76px" />
-        <asp:Button ID="BtnOK" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 18px; top: 186px; position: absolute" Text="OK" width="76px" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 114px; top: 185px; position: absolute" Text="Cancel" width="76px" />
+        <p style="height: 34px; width: 631px">
+        <asp:CheckBox ID="ChkActive" runat="server" style="z-index: 1; left: 15px; top: 151px; position: absolute" Text="Active" width="76px" />
+        </p>
+        <asp:TextBox ID="TxtDOB" runat="server" style="z-index: 1; left: 111px; top: 116px; position: absolute" OnTextChanged="TxtDOB_TextChanged"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+        <asp:Button ID="BtnOk" runat="server" OnClick="BtnOk_Click" Text="OK" Width="48px" />
+        <asp:Button ID="BtnCncl" runat="server" Text="Cancel" />
         <p>
             &nbsp;</p>
     <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
-        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
     </form>
     </body>
 </html>
