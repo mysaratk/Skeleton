@@ -96,9 +96,9 @@ namespace Testing1
             if (DB.Count == 1)
             {
                 StaffId = Convert.ToInt32(DB.DataTable.Rows[0][StaffId]);
-                FullName = Convert.ToString(DB.DataTable.Rows[0][FullName]);
-                Dateofbirth = Convert.ToDateTime(DB.DataTable.Rows[0][DateTime]);
-                IsActive = Convert.ToBoolean(DB.DataTable.Rows[0][is_active]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mDateofbirth = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mIsActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 return true;
             }
             else
