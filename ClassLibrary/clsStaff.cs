@@ -63,7 +63,10 @@ namespace ClassLibrary
         public bool Find(int staffID)
         {
             //set the private data members to the test data value
-            StaffID = 21;
+            mStaffID = 1;
+            mActive = true;
+            mFullName = "Piotr";
+            mDateOfBirth = Convert.ToDateTime("11/04/2000");
             //always return true
             return true;
         }
