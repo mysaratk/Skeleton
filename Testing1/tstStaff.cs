@@ -79,13 +79,13 @@ namespace Testing1
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create a boolean variable to store the results of the validation
-            Boolean found = false;
+            Boolean Found = false;
             //create some test data to use with the method
             Int32 StaffID = 3;
             //invoke the method
-            found = AnStaff.Find(StaffID);
+            Found = AnStaff.Find(StaffID);
             //test to see if the result is true
-            Assert.IsTrue(found);
+            Assert.IsTrue(Found);
         }
         [TestMethod]
         public void TestStaffIdFound()

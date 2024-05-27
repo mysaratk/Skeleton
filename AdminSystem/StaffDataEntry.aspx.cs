@@ -67,7 +67,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string DateOfBirth = TxtDOB.Text;
         string Active = ChkActive.Text;
         string Error = "";
-        Error = AnStaff.Valid(StaffID, FullName, DateOfBirth, Active);
+        Error = AnStaff.Found(StaffID, FullName, DateOfBirth, Active);
         if (Error == "")
         {
             AnStaff.StaffID = int.Parse(IblStaffID.Text);

@@ -35,7 +35,7 @@ namespace ClassLibrary
                 mFullName = value;
             }
         }
-         public DateTime DateOfBirth
+        public DateTime DateOfBirth
         {
             get
             {
@@ -63,17 +63,21 @@ namespace ClassLibrary
         }
         public bool Find(int staffID)
         {
-            //set the private data members to the test data value
-            mStaffID = 1;
-            mActive = true;
-            mFullName = "Piotr";
-            mDateOfBirth = Convert.ToDateTime("11/04/2000");
-            //always return true
-            return true;
-        }
-        public string Valid(string StaffID, string FullName, string DateOfBirth, string Active)
-        {
-            return "";
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffID", StaffID);
+            DB.Execute("dbo.tblstaff_FilterBystaffId");
+            if (DB.Count == 1)
+            {
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[1][3]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[1]["Piotr"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[1]["11/04/2000"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[1]["true"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
