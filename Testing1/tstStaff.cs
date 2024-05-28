@@ -81,7 +81,7 @@ namespace Testing1
             //create a boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffID = 3;
+            Int32 StaffID = 2;
             //invoke the method
             Found = AnStaff.Find(StaffID);
             //test to see if the result is true
@@ -97,11 +97,11 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 3;
+            Int32 StaffID = 2;
             //invoke the method
             Found = AnStaff.Find(StaffID);
             //check the address id property
-            if (AnStaff.StaffID != 3)
+            if (AnStaff.StaffID != 2)
             {
                 OK = false;
             }
@@ -114,9 +114,9 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffID = 3;
+            Int32 StaffID = 2;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.FullName != "Piotr")
+            if (AnStaff.FullName != "Borislav")
             {
                 OK = false;
             }
@@ -129,7 +129,7 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 3;
+            Int32 StaffId = 2;
             Found = AnStaff.Find(StaffId);
             if (AnStaff.Active != true)
             {
@@ -147,11 +147,11 @@ namespace Testing1
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 2;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the date added property
-            if (AnStaff.DateOfBirth != Convert.ToDateTime("11/04/2000"))
+            if (AnStaff.DateOfBirth != Convert.ToDateTime("12/06/2002"))
             {
                 OK = false;
             }

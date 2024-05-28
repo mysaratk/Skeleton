@@ -5,10 +5,7 @@ namespace ClassLibrary
 {
     public class clsStaff
     {
-        private string mFullName;
-        private DateTime mDateOfBirth; // or DateTime if it represents a date
-        private bool mActive;
-        private int mStaffID; // or string if StaffID is a string
+        private Int32 mStaffID;
         public Int32 StaffID
         {
             get
@@ -22,6 +19,7 @@ namespace ClassLibrary
                 mStaffID = value;
             }
         }
+        private string mFullName;
         public String FullName
         {
             get
@@ -35,6 +33,7 @@ namespace ClassLibrary
                 mFullName = value;
             }
         }
+        private DateTime mDateOfBirth;
         public DateTime DateOfBirth
         {
             get
@@ -48,6 +47,7 @@ namespace ClassLibrary
                 mDateOfBirth = value;
             }
         }
+        private bool mActive;
         public bool Active
         {
             get
@@ -61,23 +61,29 @@ namespace ClassLibrary
                 mActive = value;
             }
         }
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@StaffID", StaffID);
-            DB.Execute("dbo.tblstaff_FilterBystaffId");
-            if (DB.Count == 1)
+            DB.Execute("tblstaff_FilterBystaffId");
+            if(DB.Count == 1)
             {
-                mStaffID = Convert.ToInt32(DB.DataTable.Rows[1][3]);
-                mFullName = Convert.ToString(DB.DataTable.Rows[1]["Piotr"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[1]["11/04/2000"]);
-                mActive = Convert.ToBoolean(DB.DataTable.Rows[1]["true"]);
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 return true;
             }
-            else
+            else 
             {
                 return false;
             }
+
+        }
+       
+public string Find(string staffID, string fullName, string dateOfBirth, string active)
+        {
+            throw new NotImplementedException();
         }
     }
 }
