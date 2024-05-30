@@ -66,7 +66,7 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@StaffID", StaffID);
             DB.Execute("tblstaff_FilterBystaffId");
-            if(DB.Count == 1)
+            if (DB.Count == 1)
             {
                 mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
                 mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
@@ -74,28 +74,72 @@ namespace ClassLibrary
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
 
         }
-       
-public string Find(string staffID, string fullName, string dateOfBirth, string active)
+
+        public string Find(string staffID, string fullName, string dateOfBirth, string active)
         {
             throw new NotImplementedException();
         }
-        public string Valid(string FullName, string dateOfBirth)
+        public string Valid(string FullName, string DateOfBirth)
         {
+            //create a string variable to store the error
             string Error = "";
-            DateTime DateOfBirth;
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if the FullName is blank
             if (FullName.Length == 0)
             {
-                Error = Error + " The Full Name may not be blank";
+                //record the error
+                Error += "The full name may not be blank : ";
             }
+            //if the FullName is greater than 6 characters
+            if (FullName.Length > 50)
+            {
+                //record the error
+                Error += "The full name must be less than 6 characters : ";
+            }
+
+            //create an instance of DateTime to compare with DateTemp
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the DateOfBirth value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(DateOfBirth);
+
+                //check if the date is in the past
+                if (DateTemp.AddYears(+199) < DateComp)
+                {
+                    //record the error
+                    Error += "The date cannot be in the past : ";
+                }
+
+                //check if the date is in the future
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error += "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error if date conversion fails
+                Error += "The date of birth is not a valid date : ";
+            }
+
+            //return any error messages
             return Error;
         }
 
     }
-
 }
+
+
+
+

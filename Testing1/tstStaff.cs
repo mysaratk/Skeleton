@@ -11,8 +11,8 @@ namespace Testing1
     {
 
         string FullName = "Borislav";
-        string DateOfBirth = DateTime.Now.ToString();
- 
+        string DateOfBirth = DateTime.Now.AddYears(-10).ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -181,7 +181,7 @@ namespace Testing1
             string FullName = "";
             Error = AnStaff.Valid(FullName, DateOfBirth);
             Assert.AreNotEqual(Error, FullName, "");
-;
+            ;
         }
         [TestMethod]
         public void FullNameMin()
@@ -191,8 +191,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                  //invoke the method
+            string FullName = "x"; //this should be ok
+                                   //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -205,8 +205,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                   //invoke the method
+            string FullName = "xx"; //this should be ok
+                                    //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -219,8 +219,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                      //invoke the method
+            string FullName = ""; //this should be ok
+            FullName = FullName.PadRight(49, 'x');                          //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -233,8 +233,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                       //invoke the method
+            string FullName = ""; //this should be ok
+            FullName = FullName.PadRight(50, 'x');                           //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -247,8 +247,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                    //invoke the method
+            string FullName = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; //this should be ok
+                                                                //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -261,11 +261,11 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string FullName = "Piotr"; //this should be ok
-                                       //invoke the method
+            string FullName = ""; //this should be ok
+            FullName = FullName.PadRight(51, 'x');                           //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DateOfBirthLessOne()
@@ -275,8 +275,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -289,8 +289,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -303,8 +303,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -317,8 +317,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -331,8 +331,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -345,8 +345,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                              //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -359,8 +359,8 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/200"; //this should be ok
-                                       //invoke the method
+            string DateOfBirth = "11/04/2000"; //this should be ok
+                                               //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -376,14 +376,92 @@ namespace Testing1
             DateTime TestDate;
             //set the date totodays date
             TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(-100);
+            //change the date to whatever the date is less 200 years
+            TestDate = TestDate.AddYears(-200);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
             //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(FullName, DateOfBirth);            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(FullName, DateOfBirth);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddYears(-198);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(FullName, DateOfBirth);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(FullName, DateOfBirth);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
         }
     }
 }
