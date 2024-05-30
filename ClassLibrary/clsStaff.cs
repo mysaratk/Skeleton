@@ -85,15 +85,17 @@ public string Find(string staffID, string fullName, string dateOfBirth, string a
         {
             throw new NotImplementedException();
         }
-
         public string Valid(string FullName, string dateOfBirth)
         {
             string Error = "";
-            if (FullName.Length == 0) 
+            DateTime DateOfBirth;
+            if (FullName.Length == 0)
             {
                 Error = Error + " The Full Name may not be blank";
             }
             return Error;
         }
+
     }
+
 }

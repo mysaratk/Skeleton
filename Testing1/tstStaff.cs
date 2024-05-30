@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Net;
 
 namespace Testing1
 {
@@ -364,6 +365,25 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+        [TestMethod]
+        public void DateOfBirthExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnStaff.Valid(FullName, DateOfBirth);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
