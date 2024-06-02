@@ -10,12 +10,30 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 StaffID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false) 
+        {
+            if (StaffID != -1) 
+            {
+                DisplayStaff();
+            }
+        }
 
     }
-
-    protected Label GetIblStaffID()
+    void DisplayStaff()
+    {
+        clsStaffCollection StaffList = new clsStaffCollection();
+        StaffList.ThisStaff.Find(StaffID);
+        txtStaffId.Text = StaffList.ThisStaff.StaffID.ToString();
+        txtFullName.Text = StaffList.ThisStaff.FullName.ToString();
+        TxtDOB.Text = StaffList.ThisStaff.DateOfBirth.ToString();
+        txtStaffId.Text = StaffList.ThisStaff.StaffID.ToString();
+        ChkActive.Checked = StaffList.ThisStaff.Active;
+    }
+        protected Label GetIblStaffID()
     {
         return IblStaffID;
     }
@@ -70,18 +88,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnStaff.Find(StaffID, FullName, DateOfBirth, Active);
         if (Error == "")
         {
-            AnStaff.StaffID = int.Parse(IblStaffID.Text);
-            AnStaff.FullName = txtFullName.Text;
+            AnStaff.StaffID = StaffID;
+            AnStaff.FullName = FullName;
             AnStaff.DateOfBirth = DateTime.Now;
             AnStaff.Active = ChkActive.Checked;
             clsStaffCollection StaffList = new clsStaffCollection();  
-            StaffList.ThisStaff = AnStaff;
-            StaffList.Add();
-            Response.Redirect("StaffList.aspx");
+            if (StaffID == -1) 
+            {
+                StaffList.ThisStaff = AnStaff;
+                StaffList.Add();        
+            }
+            else 
+            {
+                StaffList.ThisStaff.Find(StaffID);
+                StaffList.ThisStaff = AnStaff;
+                StaffList.Update();
+            }
+            Response.Redirect("StaffList.aspx")
         }
-        else
+        else 
         {
-            lblError.Text = Error;  
+            lblError.Text = Error;
         }
     }
 }

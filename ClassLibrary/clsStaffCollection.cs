@@ -67,5 +67,15 @@ namespace ClassLibrary
             DB.AddParameter("@Active", mThisStaff.Active);
             return DB.Execute("sproc_Staff_Insert");
         }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffID", mThisStaff.FullName);
+            DB.AddParameter("@FullName", mThisStaff.FullName);
+            DB.AddParameter("@DateOfBirth", mThisStaff.DateOfBirth);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            DB.Execute("sproc_tblstaff_Update");
+        }
     }
 }
