@@ -74,15 +74,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.FullName = txtFullName.Text;
             AnStaff.DateOfBirth = DateTime.Now;
             AnStaff.Active = ChkActive.Checked;
-            Session["AnStaff"] = AnStaff;
-            Response.Redirect("StaffViewer.aspx");
+            clsStaffCollection StaffList = new clsStaffCollection();  
+            StaffList.ThisStaff = AnStaff;
+            StaffList.Add();
+            Response.Redirect("StaffList.aspx");
         }
         else
         {
-            
-        }
+            lblError.Text = Error;  
         }
     }
+}
 
    
 
