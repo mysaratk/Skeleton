@@ -78,13 +78,11 @@ namespace Testing1
             clsStaffCollection AllStaff = new clsStaffCollection();
             clsStaff TestItem = new clsStaff();
             Int32 PrimaryKey = 0;
-            TestItem.StaffID = 2;
             TestItem.FullName = "Borislav";
             TestItem.Active = true;
             TestItem.DateOfBirth = DateTime.Now;
             AllStaff.ThisStaff= TestItem;
             PrimaryKey = AllStaff.Add();
-            TestItem.StaffID = 4;
             TestItem.FullName = "Name";
             TestItem.Active = true;
             TestItem.DateOfBirth = DateTime.Now;
@@ -93,5 +91,64 @@ namespace Testing1
             AllStaff.ThisStaff.Find(PrimaryKey);
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethod() 
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaff TestItem = new clsStaff();
+            int PrimaryKey = 0;
+            TestItem.FullName = "Borislav";
+            TestItem.Active = true;
+            TestItem.DateOfBirth = DateTime.Now;
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+            TestItem.StaffID = PrimaryKey;
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            AllStaff.Delete();
+            Boolean Foumd = AllStaff.ThisStaff.Find(PrimaryKey);
+            Assert.IsFalse(Foumd);
+        }
+        [TestMethod]
+        public void ReportByFullNameMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredFullName = new clsStaffCollection(); ;
+            FilteredFullName.ReportByFullName("");
+            Assert.AreEqual(AllStaff.Count, FilteredFullName.Count);
+        }
+        [TestMethod]
+        public void ReportByFullNameNoneFound()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredFullName = new clsStaffCollection(); ;
+            FilteredFullName.ReportByFullName("xx");
+            Assert.AreEqual(0, FilteredFullName.Count);
+        }
+        [TestMethod]
+        public void ReportByFullNameTestDataFoumd()
+        {
+            clsStaffCollection FilteredFullName = new clsStaffCollection();
+            Boolean OK = true;
+            FilteredFullName.ReportByFullName("yyy");
+            if (FilteredFullName.Count == 3) 
+            {
+                if (FilteredFullName.StaffList[0].StaffID != 25) 
+                {
+                    OK = false;
+                }
+                if (FilteredFullName.StaffList[1].StaffID != 26) 
+                {
+                    OK = false; 
+                }
+            }
+            else 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+            
+
+
     }
 }

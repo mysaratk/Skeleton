@@ -28,7 +28,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaffCollection StaffList = new clsStaffCollection();
         StaffList.ThisStaff.Find(StaffID);
         txtStaffId.Text = StaffList.ThisStaff.StaffID.ToString();
-        txtFullName.Text = StaffList.ThisStaff.FullName.ToString();
+        txtFullName.Text = StaffList.ThisStaff.FullName;
         TxtDOB.Text = StaffList.ThisStaff.DateOfBirth.ToString();
         txtStaffId.Text = StaffList.ThisStaff.StaffID.ToString();
         ChkActive.Checked = StaffList.ThisStaff.Active;
@@ -80,39 +80,67 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void BtnOk_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
-        string StaffID = txtStaffId.Text;
+        string StaffIDString = txtStaffId.Text;
         string FullName = txtFullName.Text;
-        string DateOfBirth = TxtDOB.Text;
-        string Active = ChkActive.Text;
+        string DateOfBirthString = TxtDOB.Text;
+        bool Active = ChkActive.Checked;
         string Error = "";
-        Error = AnStaff.Find(StaffID, FullName, DateOfBirth, Active);
+
+        // Assuming Find method accepts the parameters as string
+        Error = AnStaff.Find(StaffIDString, FullName, DateOfBirthString, Active.ToString());
+
         if (Error == "")
         {
-            AnStaff.StaffID = StaffID;
+            // Convert StaffID from string to int
+            int StaffID;
+            if (int.TryParse(StaffIDString, out StaffID))
+            {
+                AnStaff.StaffID = StaffID;
+            }
+            else
+            {
+                lblError.Text = "Invalid StaffID.";
+                return;
+            }
+
+            // Convert DateOfBirthString to DateTime
+            DateTime DateOfBirth;
+            if (DateTime.TryParse(DateOfBirthString, out DateOfBirth))
+            {
+                AnStaff.DateOfBirth = DateOfBirth;
+            }
+            else
+            {
+                lblError.Text = "Invalid Date of Birth.";
+                return;
+            }
+
             AnStaff.FullName = FullName;
-            AnStaff.DateOfBirth = DateTime.Now;
-            AnStaff.Active = ChkActive.Checked;
-            clsStaffCollection StaffList = new clsStaffCollection();  
-            if (StaffID == -1) 
+            AnStaff.Active = Active;
+
+            clsStaffCollection StaffList = new clsStaffCollection();
+
+            if (StaffID == -1) // Assuming -1 means a new staff
             {
                 StaffList.ThisStaff = AnStaff;
-                StaffList.Add();        
+                StaffList.Add();
             }
-            else 
+            else
             {
                 StaffList.ThisStaff.Find(StaffID);
                 StaffList.ThisStaff = AnStaff;
                 StaffList.Update();
             }
-            Response.Redirect("StaffList.aspx")
+
+            Response.Redirect("StaffList.aspx");
         }
-        else 
+        else
         {
             lblError.Text = Error;
         }
     }
+
 }
 
-   
 
-  
+
