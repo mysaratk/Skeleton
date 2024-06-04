@@ -50,6 +50,7 @@
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsStaff.cs" />
     <Compile Include="clsStaffCollection.cs" />
+    <Compile Include="clsStaffUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
