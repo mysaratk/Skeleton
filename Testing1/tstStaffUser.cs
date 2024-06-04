@@ -62,10 +62,25 @@ namespace Testing1
         {
             clsStaffUser AnUser = new clsStaffUser();
             Boolean Found = false;
-            string UserName = "Piotr";
-            string Password = "123p";
+            string UserName = "meso";
+            string Password = "1234";
             Found = AnUser.FindUser(UserName, Password);
             Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestUserNamePWFound()
+        { 
+            clsStaffUser AnUser = new clsStaffUser();
+            Boolean Found = false;
+            Boolean OK = true;
+            string UserName = "meso";
+            string Password = "1234";
+            Found = AnUser.FindUser(UserName, Password);
+            if (AnUser.UserName != UserName && AnUser.Password != Password)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }
