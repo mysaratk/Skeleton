@@ -14,7 +14,8 @@ namespace ClassLibrary
             while (Index < RecordCount) 
             {
                 clsStaff AnStaff = new clsStaff (); 
-                 AnStaff.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
+                AnStaff.StaffID = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffID"]);
+                AnStaff.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
                 AnStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 AnStaff.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
                 mStaffList.Add (AnStaff);

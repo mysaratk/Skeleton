@@ -130,13 +130,13 @@ namespace Testing1
             clsStaffCollection FilteredFullName = new clsStaffCollection();
             Boolean OK = true;
             FilteredFullName.ReportByFullName("yyy");
-            if (FilteredFullName.Count == 3) 
+            if (FilteredFullName.Count == 2) 
             {
-                if (FilteredFullName.StaffList[0].StaffID != 25) 
+                if (FilteredFullName.StaffList[0].StaffID != 4) 
                 {
                     OK = false;
                 }
-                if (FilteredFullName.StaffList[1].StaffID != 26) 
+                if (FilteredFullName.StaffList[1].StaffID != 5) 
                 {
                     OK = false; 
                 }
