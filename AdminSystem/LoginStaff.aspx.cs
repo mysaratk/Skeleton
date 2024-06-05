@@ -24,6 +24,7 @@ public partial class LoginStaff : System.Web.UI.Page
         UserName = Convert.ToString(txtuname.Text);
         Password = Convert.ToString(txtpass.Text);
         Found = AnUser.FindUser(UserName, Password);
+        Session["AnUser"] = AnUser;
         if (txtuname.Text == "")
         {
             lblError.Text = "Enter a username";
@@ -40,5 +41,10 @@ public partial class LoginStaff : System.Web.UI.Page
         {
             lblError.Text = "login details are incorrect";
         }
+    }
+
+    protected void btncancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

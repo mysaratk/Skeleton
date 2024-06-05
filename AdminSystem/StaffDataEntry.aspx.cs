@@ -140,6 +140,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
+    protected void btnmain_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void BtnCncl_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffList.aspx");
+    }
 }
 
 
