@@ -68,7 +68,7 @@
         <asp:TextBox ID="txtpass" runat="server" TextMode="Password"></asp:TextBox>
         <asp:TextBox ID="txtuname" runat="server"></asp:TextBox>
         <asp:Label ID="lblError" runat="server"></asp:Label>
-        <asp:Button ID="btnlogin" runat="server" Text="Login" />
+        <asp:Button ID="btnlogin" runat="server" Text="Login" OnClick="btnlogin_Click" />
         <asp:Button ID="btncancel" runat="server" Text="Cancel" />
         <asp:Label ID="lblusername" runat="server" Text="UserName:"></asp:Label>
         <asp:Label ID="lblpass" runat="server" Text="Password:"></asp:Label>

@@ -13,10 +13,14 @@ public partial class LoginStaff : System.Web.UI.Page
 
     }
 
-   
-
-    protected void btnlogin_Click1(object sender, EventArgs e)
+    protected void btncancel_Click(object sender, EventArgs e)
     {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnlogin_Click(object sender, EventArgs e)
+    {
+
         clsStaffUser AnUser = new clsStaffUser();
         string UserName = txtuname.Text;
         string Password = txtpass.Text;
@@ -41,10 +45,5 @@ public partial class LoginStaff : System.Web.UI.Page
         {
             lblError.Text = "login details are incorrect";
         }
-    }
-
-    protected void btncancel_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("TeamMainMenu.aspx");
     }
 }

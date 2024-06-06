@@ -81,10 +81,7 @@ namespace ClassLibrary
 
         }
 
-        public string Find(string staffID, string fullName, string dateOfBirth, string active)
-        {
-            throw new NotImplementedException();
-        }
+        
         public string Valid(string FullName, string DateOfBirth)
         {
             //create a string variable to store the error

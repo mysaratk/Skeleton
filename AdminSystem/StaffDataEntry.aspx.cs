@@ -87,7 +87,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string Error = "";
 
         // Assuming Find method accepts the parameters as string
-        Error = AnStaff.Find(StaffIDString, FullName, DateOfBirthString, Active.ToString());
+       // Error = AnStaff.Find(StaffIDString, FullName, DateOfBirthString, Active.ToString());
 
         if (Error == "")
         {
