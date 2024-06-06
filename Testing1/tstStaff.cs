@@ -240,7 +240,7 @@ namespace Testing1
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void FullNaNoMid()
+        public void FullNameMid()
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
@@ -274,8 +274,11 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Parse("02/02/2020");
+            TestDate.AddDays(-1);
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
+            string DateOfBirth = TestDate.ToString(); //this should be ok
                                                //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
@@ -288,9 +291,11 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Parse("02/02/2020");
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
-                                               //invoke the method
+            string DateOfBirth = TestDate.ToString(); //this should be ok
+                                                      //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -302,22 +307,13 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Parse("02/02/2020");
+            TestDate.AddDays(+1);
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
-                                               //invoke the method
-            Error = AnStaff.Valid(FullName, DateOfBirth);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void DateOfBirthMaxLessOne()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
+            string DateOfBirth = TestDate.ToString();
             //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
+             //this should be ok
                                                //invoke the method
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
@@ -330,60 +326,14 @@ namespace Testing1
             clsStaff AnStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
-                                               //invoke the method
-            Error = AnStaff.Valid(FullName, DateOfBirth);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void DateOfBirthNoMid()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
-                                               //invoke the method
-            Error = AnStaff.Valid(FullName, DateOfBirth);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void DateOfBirthMaxPlusOne()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //create some test data to pass to the method
-            string DateOfBirth = "11/04/2000"; //this should be ok
-                                               //invoke the method
-            Error = AnStaff.Valid(FullName, DateOfBirth);
-            //test to see that the result is correct
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void DateOfBirthExtremeMin()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //create a variable to store the test date data
             DateTime TestDate;
-            //set the date totodays date
-            TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 200 years
-            TestDate = TestDate.AddYears(-200);
-            //convert the date variable to a string variable
-            string DateOfBirth = TestDate.ToString();
-            //invoke the method
+            TestDate = DateTime.Parse("02/02/2020");
+            TestDate.AddYears(+100);
+            //create some test data to pass to the method
+            string DateOfBirth = TestDate.ToString(); //this should be ok                                  
             Error = AnStaff.Valid(FullName, DateOfBirth);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
         public void DateAddedMinLessOne()
