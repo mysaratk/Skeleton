@@ -38,4 +38,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //navigate to the view page
         Response.Redirect("CustomerViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer class
+        clsCustomer AnCustomer = new clsCustomer();
+        //create a variable to store the primary key
+        int CustomerId;
+        //create a variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        //find the record
+        Found = AnCustomer.Find(CustomerId);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtFirstName.Text = AnCustomer.FirstName;
+            txtLastName.Text = AnCustomer.LastName;
+            txtEmail.Text = AnCustomer.Email;
+            txtPhoneNumber.Text = AnCustomer.PhoneNumber.ToString();
+            txtDateAdded.Text = AnCustomer.DateAdded.ToString();
+            txtLogin.Text = AnCustomer.Login;
+            txtPassword.Text = AnCustomer.Password;
+        }
+    }
 }

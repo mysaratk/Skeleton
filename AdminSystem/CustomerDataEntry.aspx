@@ -12,6 +12,8 @@
             <asp:TextBox ID="txtCustomerId" runat="server" style="z-index: 1; left: 146px; top: 12px; position: absolute; height: 17px;" width="128px"></asp:TextBox>
             <asp:Label ID="lblCustomerId" runat="server" style="z-index: 1; left: 24px; top: 16px; position: absolute; height: 46px; width: 113px" Text="Customer ID"></asp:Label>
 
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 368px; top: 14px; position: absolute" Text="Find" />
+
         </div>
         <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 24px; top: 45px; position: absolute; width: 113px" Text="First Name"></asp:Label>
         <p>
@@ -24,7 +26,7 @@
             <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 146px; top: 41px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <asp:Label ID="lblLogin" runat="server" style="z-index: 1; left: 23px; top: 180px; position: absolute" Text="Login" width="113px"></asp:Label>
-        <asp:Label ID="lblPassword" runat="server" style="z-index: 1; left: 24px; top: 212px; position: absolute; bottom: 133px" Text="Password" width="113px"></asp:Label>
+        <asp:Label ID="lblPassword" runat="server" style="z-index: 1; left: 24px; top: 212px; position: absolute; bottom: 124px" Text="Password" width="113px"></asp:Label>
         <asp:Label ID="lblPhoneNumber" runat="server" style="z-index: 1; left: 24px; top: 146px; position: absolute" Text="Phone Number" width="113px"></asp:Label>
         <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 23px; top: 246px; position: absolute" Text="Date Added" width="113px"></asp:Label>
         <asp:TextBox ID="txtLastName" runat="server" height="22px" style="z-index: 1; left: 146px; top: 70px; position: absolute" width="128px"></asp:TextBox>

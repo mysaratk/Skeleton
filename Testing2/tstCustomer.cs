@@ -128,7 +128,7 @@ namespace Testing2
             //create a Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 1;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //test to see if the result is true
@@ -145,11 +145,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the customer id
-            if (AnCustomer.CustomerId != 21)
+            if (AnCustomer.CustomerId != 2)
             {
                 OK = false;
             }
@@ -167,11 +167,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the first name
-            if (AnCustomer.FirstName != "Adam")
+            if (AnCustomer.FirstName != "Robert")
             {
                 OK = false;
             }
@@ -189,11 +189,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the last name
-            if (AnCustomer.LastName != "Robak")
+            if (AnCustomer.LastName != "Plant")
             {
                 OK = false;
             }
@@ -211,11 +211,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the email
-            if (AnCustomer.Email != "adam@robak.com")
+            if (AnCustomer.Email != "rob222@aaa.uk")
             {
                 OK = false;
             }
@@ -233,11 +233,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the phone number
-            if (AnCustomer.PhoneNumber != 11122)
+            if (AnCustomer.PhoneNumber != 12121)
             {
                 OK = false;
             }
@@ -255,11 +255,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the login
-            if (AnCustomer.Login != "Adam123")
+            if (AnCustomer.Login != "rob2222")
             {
                 OK = false;
             }
@@ -277,11 +277,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the password
-            if (AnCustomer.Password != "AdamRobak123")
+            if (AnCustomer.Password != "1j2j44")
             {
                 OK = false;
             }
@@ -299,11 +299,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the date added
-            if (AnCustomer.DateAdded != Convert.ToDateTime("12/01/2022"))
+            if (AnCustomer.DateAdded != Convert.ToDateTime("01/01/2022"))
             {
                 OK = false;
             }
