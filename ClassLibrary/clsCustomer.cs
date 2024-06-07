@@ -180,5 +180,12 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        //function for the public validation method
+        public string Valid(string FirstName, string LastName, string Email, string DateAdded, string Login, string Password)
+        {
+            return "";
+        }
+        //if no errors found then a blank string is returned 
     }
 } 

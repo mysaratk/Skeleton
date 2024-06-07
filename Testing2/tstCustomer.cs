@@ -7,6 +7,16 @@ namespace Testing2
     [TestClass]
     public class tstCustomer
     {
+        //good test data
+        //create some test data to pass the method
+        string FirstName = "Tom";
+        string LastName = "Lolop";
+        string Email = "asd@ccc";
+        string DateAdded = DateTime.Now.ToShortDateString();
+        string Login = "Tom123";
+        string Password = "1234";
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -157,6 +167,7 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        //-------------- DOESN'T WORK -----------
         [TestMethod]
         public void TestFirstNameFound()
         {
@@ -179,6 +190,7 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        //-------------- DOESN'T WORK -----------
         [TestMethod]
         public void TestLastNameFound()
         {
@@ -201,6 +213,7 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        //-------------- DOESN'T WORK -----------
         [TestMethod]
         public void TestEmailFound()
         {
@@ -245,6 +258,7 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        //-------------- DOESN'T WORK -----------
         [TestMethod]
         public void TestLoginFound()
         {
@@ -267,6 +281,7 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        //-------------- DOESN'T WORK -----------
         [TestMethod]
         public void TestPasswordFound()
         {
@@ -309,6 +324,17 @@ namespace Testing2
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class 
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AnCustomer.Valid(FirstName, LastName, Email, DateAdded, Login, Password);
         }
     }
 }
