@@ -14,7 +14,7 @@ namespace ClassLibrary
         private int _orderId;
         private string _dlvrAddress;
         private DateTime _orderD8;
-        private float _ttlAmount;
+        private double _ttlAmount;
         private bool _ordrPaid;
         private bool _sorted;
 
@@ -36,7 +36,7 @@ namespace ClassLibrary
             set { _orderD8 = value; }
         }
 
-        public float TtlAmount
+        public double TtlAmount
         {
             get { return _ttlAmount; }
             set { _ttlAmount = value; }
