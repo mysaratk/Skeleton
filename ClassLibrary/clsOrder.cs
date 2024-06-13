@@ -83,9 +83,16 @@ namespace ClassLibrary
             return true;
         }
 
-        public void Find(int orderId)
+        public bool Find(int orderId)
         {
-            throw new NotImplementedException();
+            _orderId = 1;
+            _dlvrAddress = "48 Town road";
+            _orderD8 = Convert.ToDateTime("11/08/2024");
+            _ttlAmount = Convert.ToDouble("18.57");
+            _ordrPaid = true;
+            _sorted = true;
+
+            return true;
         }
     }
 }

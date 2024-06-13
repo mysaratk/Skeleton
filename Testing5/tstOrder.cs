@@ -58,5 +58,116 @@ namespace Testing5
             AnOrder.Sorted = TestData;
             Assert.AreEqual(AnOrder.Sorted, TestData);
         }
+
+        //Testing for find method
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void OrderIdFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.OrderId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void DlvrAddressFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.DlvrAddress != "48 Town road")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void OrderD8Found()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.OrderD8 != Convert.ToDateTime("11/08/2024"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TtlAmountFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.TtlAmount != Convert.ToDouble("18.57"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void OrdrPaidFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.OrdrPaid != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void SortedFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderId = 1;
+            Found = AnOrder.Find(OrderId);
+
+            if (AnOrder.Sorted != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+
     }
 }
