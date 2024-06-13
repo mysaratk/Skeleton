@@ -83,16 +83,28 @@ namespace ClassLibrary
             return true;
         }
 
-        public bool Find(int orderId)
+        public bool Find(int OrderId)
         {
-            _orderId = 1;
-            _dlvrAddress = "48 Town road";
-            _orderD8 = Convert.ToDateTime("11/08/2024");
-            _ttlAmount = Convert.ToDouble("18.57");
-            _ordrPaid = true;
-            _sorted = true;
+            clsDataConnection DB = new clsDataConnection();
+           
+            DB.AddParameter("@OrderId", OrderId);
+            DB.Execute("sproc_tblOrders_FilterByOrderId");
 
-            return true;
+            if (DB.Count == 1)
+            {
+                _orderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
+                _dlvrAddress = Convert.ToString(DB.DataTable.Rows[0]["DlvrAddress"]);
+                _orderD8 = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderD8"]);
+                _ttlAmount = Convert.ToDouble(DB.DataTable.Rows[0]["TtlAmount"]);
+                _ordrPaid = Convert.ToBoolean(DB.DataTable.Rows[0]["OrdrPaid"]);
+                _sorted = Convert.ToBoolean(DB.DataTable.Rows[0]["Sorted"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
