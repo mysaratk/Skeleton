@@ -116,25 +116,54 @@ namespace ClassLibrary
         {
             String Error = "";
             DateTime DateTemp;
+            double TtlAmountTemp;
+
             if (DlvrAddress.Length == 0)
             {
                 Error = Error + "The DlvrAddress may not be blank : ";
             }
-            if (DlvrAddress.Length > 51)
+            if (DlvrAddress.Length > 50)
             {
-                Error = Error + " The Delivery Address must not be less the 51 characters long : ";
+                Error = Error + " The Delivery Address must not be more than 50 characters long : ";
             }
-            DateTemp = Convert.ToDateTime(OrderD8);
-            if (DateTemp < DateTime.Now.Date)
+
+            try
             {
-                Error = Error + " The date cannot be in the past";
-                
+                DateTemp = Convert.ToDateTime(OrderD8);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + " The date cannot be in the past";
+
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in the Future : ";
+                }
             }
-            if (DateTemp > DateTime.Now.Date) 
+            catch
             {
-                Error = Error + "The Date cannot be in the Future : ";
+                Error = Error + "The date must be a valid date : ";
             }
-            
+
+            try
+            {
+                TtlAmountTemp = Convert.ToDouble(TtlAmount);
+
+                if (TtlAmountTemp < 0.01)
+                {
+                    Error = Error + "The total amount cannot be less than 0.01 : ";
+                }
+
+                if (TtlAmountTemp > 100)
+                {
+                    Error = Error + "The total amount cannot be more than 100 : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The total amount must be a valid number : ";
+            }
             return Error;
         }
     }

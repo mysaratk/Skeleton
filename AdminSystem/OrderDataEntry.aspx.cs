@@ -15,7 +15,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        clsOrder AnOrder = new clsOrder();
+        /*clsOrder AnOrder = new clsOrder();
         AnOrder.DlvrAddress = txtDlvrAddress.Text;
         AnOrder.OrderD8 = Convert.ToDateTime(txtOrderD8.Text);
         AnOrder.TtlAmount = Convert.ToDouble(txtTtlAmount.Text);    
@@ -23,7 +23,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnOrder.Sorted = chkSorted.Checked;
 
         Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
+        Response.Redirect("OrderViewer.aspx");*/
+
+        clsOrder AnOrder = new clsOrder();
+
+        string DvlrAddress = txtDlvrAddress.Text;
+        string OrderD8 = txtOrderD8.Text;
+        string TtlAmount = txtTtlAmount.Text;
+        string OrdrPaid = chkOrdrPaid.Text;
+        string Sorted = chkOrdrPaid.Text;
+        string Error = "";
+
+        Error = AnOrder.Valid(DvlrAddress, OrderD8, TtlAmount);
+        if (Error == "")
+        {
+            AnOrder.DlvrAddress = DvlrAddress;
+            AnOrder.OrderD8 = Convert.ToDateTime(OrderD8);
+            AnOrder.TtlAmount = Convert.ToDouble(TtlAmount);
+
+            Session["AnOrder"] = AnOrder;
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -42,5 +66,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkOrdrPaid.Checked = AnOrder.OrdrPaid;
             chkSorted.Checked = AnOrder.Sorted;
         }
+        
     }
 }
