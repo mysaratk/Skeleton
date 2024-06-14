@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.Remoting.Messaging;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ClassLibrary
 {
 
-    public class clsOrder
+    public class clsOrder : ClsOrderBase
     {
         private int _orderId;
         private string _dlvrAddress;
@@ -105,6 +108,20 @@ namespace ClassLibrary
             {
                 return false;
             }
+         
+          
         }
+
+       public string Valid(string DlvrAddress, string OrderD8, string TtlAmount)
+        {
+            String Error = "";
+            if (DlvrAddress.Length == 0)
+            {
+                Error = Error + "The DlvrAddress may not be blank : ";
+            }
+                return Error;
+
+        }
+       
     }
 }
