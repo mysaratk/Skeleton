@@ -89,7 +89,7 @@ namespace ClassLibrary
         public bool Find(int OrderId)
         {
             clsDataConnection DB = new clsDataConnection();
-           
+
             DB.AddParameter("@OrderId", OrderId);
             DB.Execute("sproc_tblOrders_FilterByOrderId");
 
@@ -108,20 +108,37 @@ namespace ClassLibrary
             {
                 return false;
             }
-         
-          
+
+
         }
 
-       public string Valid(string DlvrAddress, string OrderD8, string TtlAmount)
+        public string Valid(string DlvrAddress, string OrderD8, string TtlAmount)
         {
             String Error = "";
+            DateTime DateTemp;
             if (DlvrAddress.Length == 0)
             {
                 Error = Error + "The DlvrAddress may not be blank : ";
             }
-                return Error;
-
+            if (DlvrAddress.Length > 51)
+            {
+                Error = Error + " The Delivery Address must not be less the 51 characters long : ";
+            }
+            DateTemp = Convert.ToDateTime(OrderD8);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + " The date cannot be in the past";
+                
+            }
+            if (DateTemp > DateTime.Now.Date) 
+            {
+                Error = Error + "The Date cannot be in the Future : ";
+            }
+            
+            return Error;
         }
-       
     }
 }
+
+       
+    

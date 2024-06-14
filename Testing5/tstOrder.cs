@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using ClassLibrary;
+using System.IO;
 
 namespace Testing5
 {
@@ -15,7 +16,7 @@ namespace Testing5
         [TestMethod]
         public void InstanceOK()
         {
-            clsOrder AnOrder = new clsOrder(); 
+            clsOrder AnOrder = new clsOrder();
             Assert.IsNotNull(AnOrder);
         }
 
@@ -173,7 +174,7 @@ namespace Testing5
         }
         [TestMethod]
 
-        
+
         public void ValidMethodOk()
         {
             clsOrder AnOrder = new clsOrder();
@@ -183,7 +184,7 @@ namespace Testing5
 
         }
         [TestMethod]
-        
+
         public void DlvrAddressNoMinLessOne()
         {
             clsOrder AnOrder = new clsOrder();
@@ -193,7 +194,7 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-       
+
         public void DlvrAddressNoMin()
         {
             clsOrder AnOrder = new clsOrder();
@@ -203,7 +204,7 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        
+
         public void DlvrAddressNoMinPlusOne()
         {
             clsOrder AnOrder = new clsOrder();
@@ -213,9 +214,9 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        
+
         public void DlvrAddressNoMaxLessOne()
-        { 
+        {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string DlvrAddress = "49";
@@ -254,7 +255,85 @@ namespace Testing5
             Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
             Assert.AreEqual(Error, "");
 
-            }
         }
+        [TestMethod]
+
+        public void DlvrAddressNoExtremeMax()
+        {
+
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string DlvrAddress = "";
+            DlvrAddress = DlvrAddress.PadRight(500, 'a');
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+
+        public void OrderD8ExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-50);
+            string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+
+        public void OrderD8MinLessOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1);
+            string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+
+        public void OrderD8Min()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-10);
+            string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+
+        public void OrderD8MinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(1);
+            string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+
+        public void OrderD8ExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(50);
+            string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+    }
 }
 
