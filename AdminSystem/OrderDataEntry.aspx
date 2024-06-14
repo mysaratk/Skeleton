@@ -29,6 +29,7 @@
             <asp:CheckBox ID="chkSorted" runat="server" Text="Sorted"></asp:CheckBox>
             <br />
             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+            <asp:Button ID="btnListPage" runat="server" Text="View list" OnClick="btnListPage_Click" />
             <br />
             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
         </div>
