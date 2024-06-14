@@ -303,7 +303,6 @@ namespace Testing5
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-10);
             string OrderD8 = TestDate.ToString();
             Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
             Assert.AreEqual(Error, "");
@@ -331,6 +330,105 @@ namespace Testing5
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(50);
             string OrderD8 = TestDate.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = -100;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMinLessOne() 
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = -1;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMin() 
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 0.01;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 1;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMaxMinusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 99;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 100;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMaxPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 101;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountMid()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 50;
+            string TtlAmount = TestDouble.ToString();
+            Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TtlAmountExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            double TestDouble = 500;
+            string TtlAmount = TestDouble.ToString();
             Error = AnOrder.Valid(DlvrAddress, OrderD8, TtlAmount);
             Assert.AreNotEqual(Error, "");
         }
